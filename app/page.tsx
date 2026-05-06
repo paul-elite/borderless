@@ -4,11 +4,17 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
   ArrowRightUpLine,
+  BriefcaseLine,
+  Building2Line,
   CalendarLine,
+  ChartLineLine,
   CheckCircleLine,
   ClockLine,
+  Compass3Line,
+  ExchangeDollarLine,
   GlobeLine,
   MapPinLine,
+  Rocket2Line,
 } from '@mingcute/react';
 
 const event = {
@@ -46,6 +52,51 @@ const themes = [
   'Global mobility',
   'Investor access',
   'Scaling beyond local markets',
+];
+
+const contentTracks = [
+  {
+    title: 'Cross-Border Capital',
+    copy: 'How African companies can structure, signal, and close investor conversations across markets.',
+    Icon: ExchangeDollarLine,
+    accent: 'bg-[#16b978]',
+    icon: 'bg-[#16b978]/10 text-[#0b9f67]',
+  },
+  {
+    title: 'Investor Readiness',
+    copy: 'What global funds look for before conviction: metrics, narratives, governance, and timing.',
+    Icon: ChartLineLine,
+    accent: 'bg-[#ff5a3d]',
+    icon: 'bg-[#ff5a3d]/10 text-[#d9432a]',
+  },
+  {
+    title: 'Scaling Beyond Home Markets',
+    copy: 'The operating choices behind expansion, pricing, hiring, and distribution across borders.',
+    Icon: Rocket2Line,
+    accent: 'bg-black',
+    icon: 'bg-black/8 text-black',
+  },
+  {
+    title: 'Mobility & Market Access',
+    copy: 'How talent movement, market entry, and regulatory pathways shape global growth.',
+    Icon: Compass3Line,
+    accent: 'bg-[#d9f45f]',
+    icon: 'bg-[#d9f45f]/45 text-black',
+  },
+  {
+    title: 'Operator Playbooks',
+    copy: 'Practical lessons from builders turning local traction into durable regional advantage.',
+    Icon: BriefcaseLine,
+    accent: 'bg-[#0ca666]',
+    icon: 'bg-[#16b978]/10 text-[#0b9f67]',
+  },
+  {
+    title: 'Ecosystem Infrastructure',
+    copy: 'The rails, partnerships, and platforms needed to make African startups globally legible.',
+    Icon: Building2Line,
+    accent: 'bg-[#ff5a3d]',
+    icon: 'bg-[#ff5a3d]/10 text-[#d9432a]',
+  },
 ];
 
 const fadeUp = {
@@ -167,6 +218,41 @@ function HeroTicket() {
   );
 }
 
+function ContentTrackCard({
+  track,
+  index,
+}: {
+  track: (typeof contentTracks)[number];
+  index: number;
+}) {
+  const TrackIcon = track.Icon;
+
+  return (
+    <motion.article
+      {...fadeUp}
+      transition={{ duration: 0.65, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
+      tabIndex={0}
+      className="group relative flex min-h-72 flex-col overflow-hidden rounded-[1.35rem] border border-black/8 bg-white p-6 shadow-[0_18px_55px_rgba(15,23,42,0.07)] outline-none transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_70px_rgba(15,23,42,0.11)] focus-visible:-translate-y-1 focus-visible:ring-2 focus-visible:ring-black"
+    >
+      <div className={`absolute inset-x-0 top-0 h-1.5 ${track.accent}`} />
+      <div className="pointer-events-none absolute -right-16 -top-16 size-44 rounded-full bg-[#eff0f2] opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100 group-focus:opacity-100" />
+      <div className="relative flex flex-1 flex-col">
+        <div className={`flex size-13 items-center justify-center rounded-2xl ${track.icon}`}>
+          <TrackIcon className="size-7" />
+        </div>
+        <div className="mt-auto min-h-36 pt-12">
+          <h3 className="text-3xl font-black leading-[0.95] tracking-[-0.06em] transition-transform duration-300 ease-out group-hover:-translate-y-8 group-focus:-translate-y-8">
+            {track.title}
+          </h3>
+          <p className="mt-4 translate-y-3 text-sm font-semibold leading-relaxed text-black/58 opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus:translate-y-0 group-focus:opacity-100">
+            {track.copy}
+          </p>
+        </div>
+      </div>
+    </motion.article>
+  );
+}
+
 export default function Home() {
   return (
     <main id="top" className="min-h-screen overflow-hidden bg-[#eff0f2] text-black">
@@ -176,8 +262,8 @@ export default function Home() {
           <div className="hidden items-center gap-8 text-sm font-bold md:flex">
             <a href="#about" className="hover:text-[#0b9f67]">About</a>
             <a href="#why" className="hover:text-[#0b9f67]">Why attend</a>
+            <a href="#tracks" className="hover:text-[#0b9f67]">Tracks</a>
             <a href="#details" className="hover:text-[#0b9f67]">Details</a>
-            <a href="#themes" className="hover:text-[#0b9f67]">Themes</a>
           </div>
           <a
             href="#register"
@@ -293,6 +379,17 @@ export default function Home() {
         </div>
       </Section>
 
+      <Section id="tracks" eyebrow="Content Tracks" title="Six conversations for founders, funders, and operators moving across borders." className="bg-white">
+        <p className="mt-7 max-w-2xl text-lg font-bold leading-relaxed text-black/64">
+          Borderless is shaped around the rooms, questions, and operating decisions that matter when African companies start competing for global attention.
+        </p>
+        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {contentTracks.map((track, index) => (
+            <ContentTrackCard key={track.title} track={track} index={index} />
+          ))}
+        </div>
+      </Section>
+
       <Section id="themes" eyebrow="Featured Themes" title="The conversations that move beyond the local market.">
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {themes.map((theme, index) => (
@@ -350,6 +447,7 @@ export default function Home() {
           <div className="flex flex-wrap gap-5 text-sm font-black text-black/64">
             <a href="#about" className="hover:text-[#0b9f67]">About</a>
             <a href="#why" className="hover:text-[#0b9f67]">Why attend</a>
+            <a href="#tracks" className="hover:text-[#0b9f67]">Tracks</a>
             <a href="#details" className="hover:text-[#0b9f67]">Details</a>
             <a href="#register" className="hover:text-[#0b9f67]">Register</a>
           </div>
