@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
   ArrowRightUpLine,
@@ -56,11 +57,15 @@ const fadeUp = {
 
 function LogoMark() {
   return (
-    <a href="#top" className="group inline-flex items-center gap-2" aria-label="Borderless home">
-      <span className="grid size-7 place-items-center rounded-[7px] border-2 border-black bg-white shadow-[3px_3px_0_#ff5a3d]">
-        <span className="size-3 rounded-[3px] border-2 border-black" />
-      </span>
-      <span className="brand-heading text-[1.55rem] font-black tracking-[-0.04em] text-black">borderless</span>
+    <a href="#top" className="inline-flex items-center" aria-label="Borderless home">
+      <Image
+        src="/logo.svg"
+        alt="Borderless"
+        width={290}
+        height={75}
+        priority
+        className="h-10 w-auto sm:h-12"
+      />
     </a>
   );
 }
