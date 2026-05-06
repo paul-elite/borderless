@@ -57,10 +57,10 @@ const fadeUp = {
 function LogoMark() {
   return (
     <a href="#top" className="group inline-flex items-center gap-2" aria-label="Borderless home">
-      <span className="grid size-7 place-items-center rounded-[7px] border-2 border-black bg-white shadow-[3px_3px_0_#19c884]">
+      <span className="grid size-7 place-items-center rounded-[7px] border-2 border-black bg-white shadow-[3px_3px_0_#ff5a3d]">
         <span className="size-3 rounded-[3px] border-2 border-black" />
       </span>
-      <span className="text-[1.55rem] font-black tracking-[-0.04em] text-black">borderless</span>
+      <span className="brand-heading text-[1.55rem] font-black tracking-[-0.04em] text-black">borderless</span>
     </a>
   );
 }
@@ -79,8 +79,8 @@ function Button({
       href={href}
       className={
         variant === 'primary'
-          ? 'inline-flex items-center justify-center gap-2 rounded-full bg-[#18bf7b] px-6 py-3 text-sm font-black text-white shadow-[0_12px_30px_rgba(24,191,123,0.32)] hover:-translate-y-0.5 hover:bg-[#0fab6b] focus-visible:ring-2 focus-visible:ring-black'
-          : 'inline-flex items-center justify-center gap-2 rounded-full border border-black/10 bg-white px-6 py-3 text-sm font-black text-black shadow-[0_12px_28px_rgba(12,18,16,0.08)] hover:-translate-y-0.5 hover:border-black/25 focus-visible:ring-2 focus-visible:ring-black'
+          ? 'inline-flex items-center justify-center gap-2 rounded-full bg-[#16b978] px-6 py-3 text-sm font-black text-white shadow-[0_12px_30px_rgba(24,191,123,0.32)] ring-1 ring-[#d9f45f]/40 hover:-translate-y-0.5 hover:bg-[#0ca666] focus-visible:ring-2 focus-visible:ring-black'
+          : 'inline-flex items-center justify-center gap-2 rounded-full border border-black/10 bg-white px-6 py-3 text-sm font-black text-black shadow-[0_12px_28px_rgba(12,18,16,0.08)] hover:-translate-y-0.5 hover:border-[#ff5a3d]/60 focus-visible:ring-2 focus-visible:ring-black'
       }
     >
       {children}
@@ -106,7 +106,7 @@ function Section({
     <section id={id} className={`scroll-mt-24 px-5 py-20 sm:px-8 lg:py-28 ${className}`}>
       <motion.div {...fadeUp} className="mx-auto max-w-6xl">
         {eyebrow ? (
-          <p className="mb-4 text-xs font-black uppercase tracking-[0.22em] text-[#0a9f66]">{eyebrow}</p>
+          <p className="mb-4 text-xs font-black uppercase tracking-[0.22em] text-[#0b9f67]">{eyebrow}</p>
         ) : null}
         <h2 className="max-w-3xl text-4xl font-black tracking-[-0.06em] text-black sm:text-5xl lg:text-6xl">
           {title}
@@ -123,16 +123,18 @@ function HeroTicket() {
       initial={{ opacity: 0, scale: 0.96, y: 24 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-      className="relative mx-auto mt-16 max-w-5xl overflow-hidden rounded-[2.25rem] bg-[#0db77a] p-8 text-white shadow-[0_30px_90px_rgba(11,149,99,0.28)] sm:p-10 lg:p-12"
+      className="relative mx-auto mt-16 max-w-5xl overflow-hidden rounded-[2.25rem] bg-[linear-gradient(135deg,#16b978_0%,#09a66f_58%,#087452_100%)] p-8 text-white shadow-[0_30px_90px_rgba(11,149,99,0.28)] sm:p-10 lg:p-12"
     >
       <div className="absolute inset-0 opacity-35 [background-image:radial-gradient(#08704c_1px,transparent_1px)] [background-size:14px_14px]" />
+      <div className="absolute -left-12 -top-16 h-44 w-44 rounded-full bg-[#ff5a3d] opacity-70 blur-3xl" />
+      <div className="absolute bottom-0 right-24 h-28 w-28 rounded-full bg-[#d9f45f] opacity-45 blur-2xl" />
       <div className="absolute -right-14 top-1/2 hidden h-72 w-72 -translate-y-1/2 rounded-full border border-black/35 sm:block" />
       <div className="absolute -right-7 top-1/2 hidden h-44 w-44 -translate-y-1/2 rounded-full border border-black/35 sm:block" />
       <div className="absolute right-9 top-1/2 hidden h-20 w-20 -translate-y-1/2 rounded-full border border-black/35 sm:block" />
 
       <div className="relative grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <div>
-          <div className="mb-8 inline-flex items-center rounded-full bg-black px-4 py-2 text-3xl font-black italic tracking-[-0.06em] text-[#f4ec58] shadow-[6px_6px_0_rgba(0,0,0,0.18)] sm:text-5xl">
+          <div className="mb-8 inline-flex items-center rounded-full bg-black px-4 py-2 text-3xl font-black italic tracking-[-0.06em] text-[#d9f45f] shadow-[6px_6px_0_rgba(0,0,0,0.18)] sm:text-5xl">
             #TBE2026
           </div>
           <p className="max-w-sm text-lg font-bold leading-tight text-white/85">
@@ -167,14 +169,14 @@ export default function Home() {
         <nav className="mx-auto flex max-w-6xl items-center justify-between gap-6" aria-label="Main navigation">
           <LogoMark />
           <div className="hidden items-center gap-8 text-sm font-bold md:flex">
-            <a href="#about" className="hover:text-[#0a9f66]">About</a>
-            <a href="#why" className="hover:text-[#0a9f66]">Why attend</a>
-            <a href="#details" className="hover:text-[#0a9f66]">Details</a>
-            <a href="#themes" className="hover:text-[#0a9f66]">Themes</a>
+            <a href="#about" className="hover:text-[#0b9f67]">About</a>
+            <a href="#why" className="hover:text-[#0b9f67]">Why attend</a>
+            <a href="#details" className="hover:text-[#0b9f67]">Details</a>
+            <a href="#themes" className="hover:text-[#0b9f67]">Themes</a>
           </div>
           <a
             href="#register"
-            className="rounded-full bg-[#18bf7b] px-5 py-2.5 text-sm font-black text-white shadow-[0_10px_22px_rgba(24,191,123,0.28)] hover:-translate-y-0.5 hover:bg-[#0fab6b]"
+            className="rounded-full bg-[#16b978] px-5 py-2.5 text-sm font-black text-white shadow-[0_10px_22px_rgba(24,191,123,0.28)] hover:-translate-y-0.5 hover:bg-[#0ca666]"
           >
             Register Interest
           </a>
@@ -189,11 +191,11 @@ export default function Home() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="relative mx-auto max-w-5xl text-center"
         >
-          <p className="mb-7 inline-flex items-center rounded-full border border-black/10 bg-white px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-[#0a9f66] shadow-sm">
+          <p className="mb-7 inline-flex items-center rounded-full border border-[#ff5a3d]/25 bg-white px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-[#0b9f67] shadow-[0_10px_28px_rgba(255,90,61,0.12)]">
             Investor-facing summit in Lagos
           </p>
           <h1 className="mx-auto max-w-4xl text-5xl font-black leading-[0.92] tracking-[-0.075em] text-black sm:text-7xl lg:text-8xl">
-            Where Africa&apos;s smartest founders meet global capital.
+            Where Africa&apos;s smartest founders meet <span className="text-[#ff5a3d]">global capital.</span>
           </h1>
           <p className="mx-auto mt-7 max-w-2xl text-base font-bold leading-relaxed text-black/68 sm:text-lg">
             Borderless brings smart founders, operators, and global investors into one high-signal room built for access, capital, and scale.
@@ -214,7 +216,7 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-3">
             {['Private access', 'Investor-grade room', 'Lagos hosted', 'Global ambition'].map((item) => (
               <div key={item} className="rounded-2xl border border-black/8 bg-[#eff0f2] p-5">
-                <CheckCircleLine className="mb-4 size-6 text-[#0a9f66]" />
+                <CheckCircleLine className="mb-4 size-6 text-[#0b9f67]" />
                 <p className="text-lg font-black tracking-[-0.04em]">{item}</p>
               </div>
             ))}
@@ -231,7 +233,9 @@ export default function Home() {
               transition={{ duration: 0.65, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
               className="min-h-72 rounded-[1.35rem] bg-white p-6 shadow-[0_18px_55px_rgba(15,23,42,0.07)]"
             >
-              <div className="mb-12 flex size-10 items-center justify-center rounded-full bg-[#d6f56b] text-sm font-black text-black">
+              <div className={`mb-12 flex size-10 items-center justify-center rounded-full text-sm font-black text-black ${
+                index === 1 ? 'bg-[#ff5a3d] text-white' : 'bg-[#d9f45f]'
+              }`}>
                 0{index + 1}
               </div>
               <h3 className="text-2xl font-black tracking-[-0.055em]">{benefit.title}</h3>
@@ -244,7 +248,7 @@ export default function Home() {
       <section className="bg-white px-5 py-20 sm:px-8 lg:py-28">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <motion.div {...fadeUp}>
-            <p className="mb-4 text-xs font-black uppercase tracking-[0.22em] text-[#0a9f66]">Who it&apos;s for</p>
+            <p className="mb-4 text-xs font-black uppercase tracking-[0.22em] text-[#0b9f67]">Who it&apos;s for</p>
             <h2 className="text-4xl font-black tracking-[-0.06em] sm:text-5xl lg:text-6xl">
               The room is intentionally narrow.
             </h2>
@@ -253,8 +257,13 @@ export default function Home() {
             </p>
           </motion.div>
           <motion.div {...fadeUp} className="grid gap-4 sm:grid-cols-2">
-            {audiences.map((audience) => (
-              <div key={audience} className="group rounded-[1.35rem] bg-[#18bf7b] p-7 text-white shadow-[0_18px_45px_rgba(24,191,123,0.2)] hover:-translate-y-1">
+            {audiences.map((audience, index) => (
+              <div
+                key={audience}
+                className={`group rounded-[1.35rem] p-7 shadow-[0_18px_45px_rgba(24,191,123,0.2)] hover:-translate-y-1 ${
+                  index === 1 ? 'bg-[#ff5a3d] text-white' : index === 2 ? 'bg-black text-white' : 'bg-[#16b978] text-white'
+                }`}
+              >
                 <GlobeLine className="mb-16 size-8 text-white/82" />
                 <h3 className="text-3xl font-black tracking-[-0.06em]">{audience}</h3>
               </div>
@@ -288,8 +297,10 @@ export default function Home() {
                 index === 0
                   ? 'bg-black text-white'
                   : index === 1
-                    ? 'bg-[#d6f56b] text-black'
-                    : 'bg-[#18bf7b] text-white'
+                    ? 'bg-[#d9f45f] text-black'
+                    : index === 2
+                      ? 'bg-[#ff5a3d] text-white'
+                      : 'bg-[#16b978] text-white'
               }`}
             >
               {theme}
@@ -301,7 +312,7 @@ export default function Home() {
       <section id="register" className="px-5 py-20 sm:px-8 lg:py-28">
         <motion.div
           {...fadeUp}
-          className="relative mx-auto max-w-5xl overflow-hidden rounded-[2.25rem] bg-[#08aa73] px-6 py-16 text-center text-white shadow-[0_30px_90px_rgba(8,170,115,0.26)] sm:px-10 lg:py-20"
+          className="relative mx-auto max-w-5xl overflow-hidden rounded-[2.25rem] bg-[linear-gradient(135deg,#0d9f6d_0%,#16b978_58%,#ff5a3d_140%)] px-6 py-16 text-center text-white shadow-[0_30px_90px_rgba(8,170,115,0.26)] sm:px-10 lg:py-20"
         >
           <div className="absolute inset-0 opacity-25 [background-image:radial-gradient(#06452f_1px,transparent_1px)] [background-size:13px_13px]" />
           <div className="relative">
@@ -332,10 +343,10 @@ export default function Home() {
             <p className="mt-3 text-sm font-bold text-black/52">{event.venue} / {event.date}</p>
           </div>
           <div className="flex flex-wrap gap-5 text-sm font-black text-black/64">
-            <a href="#about" className="hover:text-[#0a9f66]">About</a>
-            <a href="#why" className="hover:text-[#0a9f66]">Why attend</a>
-            <a href="#details" className="hover:text-[#0a9f66]">Details</a>
-            <a href="#register" className="hover:text-[#0a9f66]">Register</a>
+            <a href="#about" className="hover:text-[#0b9f67]">About</a>
+            <a href="#why" className="hover:text-[#0b9f67]">Why attend</a>
+            <a href="#details" className="hover:text-[#0b9f67]">Details</a>
+            <a href="#register" className="hover:text-[#0b9f67]">Register</a>
           </div>
         </div>
       </footer>
