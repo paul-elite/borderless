@@ -164,7 +164,7 @@ function Section({
         {eyebrow ? (
           <p className="mb-4 text-xs font-black uppercase tracking-[0.22em] text-[#0b9f67]">{eyebrow}</p>
         ) : null}
-        <h2 className="max-w-3xl text-4xl font-black tracking-[-0.06em] text-black sm:text-5xl lg:text-6xl">
+        <h2 className="max-w-3xl text-4xl font-bold tracking-[-0.06em] text-black sm:text-5xl lg:text-6xl">
           {title}
         </h2>
         {children}
@@ -241,7 +241,7 @@ function ContentTrackCard({
           <TrackIcon className="size-7" />
         </div>
         <div className="mt-auto min-h-36 pt-12">
-          <h3 className="text-3xl font-black leading-[0.95] tracking-[-0.06em] transition-transform duration-300 ease-out group-hover:-translate-y-8 group-focus:-translate-y-8">
+          <h3 className="text-3xl font-bold leading-[0.95] tracking-[-0.06em] transition-transform duration-300 ease-out group-hover:-translate-y-8 group-focus:-translate-y-8">
             {track.title}
           </h3>
           <p className="mt-4 translate-y-3 text-sm font-semibold leading-relaxed text-black/58 opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus:translate-y-0 group-focus:opacity-100">
@@ -285,7 +285,7 @@ export default function Home() {
           <p className="mb-7 inline-flex items-center rounded-full border border-[#ff5a3d]/25 bg-white px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-[#0b9f67] shadow-[0_10px_28px_rgba(255,90,61,0.12)]">
             Investor-facing summit in Lagos
           </p>
-          <h1 className="mx-auto max-w-4xl text-5xl font-black leading-[0.92] tracking-[-0.075em] text-black sm:text-7xl lg:text-8xl">
+          <h1 className="mx-auto max-w-4xl text-5xl font-bold leading-[0.92] tracking-[-0.075em] text-black sm:text-7xl lg:text-8xl">
             Where Africa&apos;s smartest founders meet <span className="text-[#ff5a3d]">global capital.</span>
           </h1>
           <p className="mx-auto mt-7 max-w-2xl text-base font-bold leading-relaxed text-black/68 sm:text-lg">
@@ -329,7 +329,7 @@ export default function Home() {
               }`}>
                 0{index + 1}
               </div>
-              <h3 className="text-2xl font-black tracking-[-0.055em]">{benefit.title}</h3>
+              <h3 className="text-2xl font-bold tracking-[-0.055em]">{benefit.title}</h3>
               <p className="mt-4 text-sm font-semibold leading-relaxed text-black/58">{benefit.copy}</p>
             </motion.article>
           ))}
@@ -340,7 +340,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <motion.div {...fadeUp}>
             <p className="mb-4 text-xs font-black uppercase tracking-[0.22em] text-[#0b9f67]">Who it&apos;s for</p>
-            <h2 className="text-4xl font-black tracking-[-0.06em] sm:text-5xl lg:text-6xl">
+            <h2 className="text-4xl font-bold tracking-[-0.06em] sm:text-5xl lg:text-6xl">
               The room is intentionally narrow.
             </h2>
             <p className="mt-7 text-lg font-bold leading-relaxed text-black/64">
@@ -356,7 +356,7 @@ export default function Home() {
                 }`}
               >
                 <GlobeLine className="mb-16 size-8 text-white/82" />
-                <h3 className="text-3xl font-black tracking-[-0.06em]">{audience}</h3>
+                <h3 className="text-3xl font-bold tracking-[-0.06em]">{audience}</h3>
               </div>
             ))}
           </motion.div>
@@ -373,7 +373,7 @@ export default function Home() {
           ].map(([label, value]) => (
             <div key={label} className="rounded-[1.35rem] border border-black/8 bg-white p-6">
               <p className="text-xs font-black uppercase tracking-[0.2em] text-black/38">{label}</p>
-              <p className="mt-8 text-2xl font-black leading-tight tracking-[-0.055em]">{value}</p>
+              <p className="mt-8 text-2xl font-bold leading-tight tracking-[-0.055em]">{value}</p>
             </div>
           ))}
         </div>
@@ -395,7 +395,7 @@ export default function Home() {
           {themes.map((theme, index) => (
             <div
               key={theme}
-              className={`flex min-h-44 items-end rounded-[1.35rem] p-6 text-2xl font-black tracking-[-0.055em] ${
+              className={`flex min-h-44 items-end rounded-[1.35rem] p-6 text-2xl font-bold tracking-[-0.055em] ${
                 index === 0
                   ? 'bg-black text-white'
                   : index === 1
@@ -419,7 +419,7 @@ export default function Home() {
           <div className="absolute inset-0 opacity-25 [background-image:radial-gradient(#06452f_1px,transparent_1px)] [background-size:13px_13px]" />
           <div className="relative">
             <p className="mb-5 text-xs font-black uppercase tracking-[0.22em] text-white/70">Limited room, deliberate access</p>
-            <h2 className="mx-auto max-w-3xl text-4xl font-black leading-none tracking-[-0.065em] sm:text-6xl">
+            <h2 className="mx-auto max-w-3xl text-4xl font-bold leading-none tracking-[-0.065em] sm:text-6xl">
               Register interest for an invite to Borderless.
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-base font-bold leading-relaxed text-white/76">
